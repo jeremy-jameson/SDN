@@ -125,7 +125,7 @@
                             VLANID = "31"                                 #Example: 12
                             AddressPrefix = "10.1.31.0/24"                #Example: "10.0.40.0/24"
                             Gateways = @("10.1.31.1")                     #Example: @("10.0.40.1")
-                            PoolStart = "10.1.31.10"                       #Example: "10.0.40.5"
+                            PoolStart = "10.1.31.20"                      #Example: "10.0.40.5"
                             PoolEnd = "10.1.31.100"                       #Example: "10.0.40.100"
                         }  
                     )
@@ -251,8 +251,16 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
+                        IPAddress="192.168.10.244"
+                        LogicalNetwork = "Management"
+                    },
+                    @{
                         IPAddress="10.1.30.2"                  #Example: "10.0.10.10"
                         LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.1.31.2"
+                        LogicalNetwork = "Transit"
                     }
                 )
               },
@@ -263,14 +271,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.244"             #Example: "10.0.0.13"
+                        IPAddress="192.168.10.246"             #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.2"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.31.4"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -297,8 +305,16 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
+                        IPAddress="192.168.10.245"
+                        LogicalNetwork = "Management"
+                    },
+                    @{
                         IPAddress="10.1.30.3"
                         LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.1.31.3"
+                        LogicalNetwork = "Transit"
                     }
                 )
               },
@@ -309,14 +325,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.246"             #Example: "10.0.0.13"
+                        IPAddress="192.168.10.248"             #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.4"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.31.6"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -344,14 +360,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.245"             #Example: "10.0.0.13"                          
+                        IPAddress="192.168.10.247"             #Example: "10.0.0.13"                          
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.3"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.31.5"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -364,14 +380,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.247"             #Example: "10.0.0.13"
+                        IPAddress="192.168.10.249"             #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.5"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.31.7"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
