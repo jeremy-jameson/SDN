@@ -389,17 +389,17 @@
             InternalNicName = "HNVPA"
             ExternalNicName = "Transit"
          },
-         @{ 
-            NodeName="MTGW-02"                                      #Example: "MTGW-02"
-            Role     = "Gateway"
-            GatewayPoolResourceId = "GrePool"
-            InternalNicName = "HNVPA"
-            ExternalNicName = "Transit"
-         },
          @{  
             NodeName = "MTGW-03"                                    #Example: "MTGW-03"
             Role     = "Gateway" 
             GatewayPoolResourceId = "default" 
+            InternalNicName = "HNVPA"
+            ExternalNicName = "Transit"
+         },
+         @{ 
+            NodeName="MTGW-02"                                      #Example: "MTGW-02"
+            Role     = "Gateway"
+            GatewayPoolResourceId = "GrePool"
             InternalNicName = "HNVPA"
             ExternalNicName = "Transit"
          },
