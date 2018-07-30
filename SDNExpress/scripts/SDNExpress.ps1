@@ -295,7 +295,13 @@ Configuration DeployVMs
                         $TimeZone = $node.TimeZone
                     }
 
-                    $finalUnattend = ($unattendfile -f $allnics, $dnsinterfaces, $($Using:vminfo.vmname), $($Using:node.fqdn), $($Using:node.DomainJoinUsername), $($Using:node.DomainJoinPassword), $($Using:node.LocalAdminPassword), $key, $timezone, $locale )
+                    $escapedDomainJoinPassword = [System.Security.SecurityElement]::Escape(
+                        $($Using:node.DomainJoinPassword))
+
+                    $escapedLocalAdminPassword = [System.Security.SecurityElement]::Escape(
+                        $($Using:node.LocalAdminPassword))
+
+                    $finalUnattend = ($unattendfile -f $allnics, $dnsinterfaces, $($Using:vminfo.vmname), $($Using:node.fqdn), $($Using:node.DomainJoinUsername), $escapedDomainJoinPassword, $escapedLocalAdminPassword, $key, $timezone, $locale )
                     write-verbose $finalunattend
                     set-content -value $finalUnattend -path $dstfile
                 }
