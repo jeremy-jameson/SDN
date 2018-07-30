@@ -269,6 +269,13 @@
                     @{
                         IPAddress="10.184.108.41"                   #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
+                    },
+                    @{
+                        LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.10.10.41"                     #Example: "10.0.0.13"
+                        LogicalNetwork = "Transit"
                     }
                 )
 
@@ -308,6 +315,13 @@
                     @{
                         IPAddress="10.184.108.42"                   #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
+                    },
+                    @{
+                        LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.10.10.42"                     #Example: "10.0.0.13"
+                        LogicalNetwork = "Transit"
                     }
                 )
               }
@@ -336,6 +350,13 @@
                     @{
                         IPAddress="10.184.108.43"                   #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
+                    },
+                    @{
+                        LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.10.10.43"                     #Example: "10.0.0.13"
+                        LogicalNetwork = "Transit"
                     }
                 )
 
@@ -349,6 +370,13 @@
                     @{
                         IPAddress="10.184.108.44"                   #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
+                    },
+                    @{
+                        LogicalNetwork = "HNVPA"
+                    },
+                    @{
+                        IPAddress="10.10.10.44"                     #Example: "10.0.0.13"
+                        LogicalNetwork = "Transit"
                     }
                 )
               }			  
