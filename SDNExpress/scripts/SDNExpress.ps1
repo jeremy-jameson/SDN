@@ -46,7 +46,7 @@ param(
     )    
 
 # Script version, should be matched with the config files
-$ScriptVersion = "1.1"
+$ScriptVersion = "1.2"
 
 Configuration SetHyperVWinRMEnvelope
 {
