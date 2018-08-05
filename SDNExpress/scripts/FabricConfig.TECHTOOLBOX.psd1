@@ -34,12 +34,12 @@
 
             #This is the user account and password that the Service Fabric cluster nodes will use for communicating with each other
             #The NCClusterUsername must contain the Domain name in the format DOMAIN\User
-            NCClusterUsername = "$env:USERDNSDOMAIN\s-nc01-cluster"       #Example: CONTOSO\AlYoung
+            NCClusterUsername = "$env:USERDOMAIN\s-nc01-cluster"       #Example: CONTOSO\AlYoung
             NCClusterPassword = '{guess}'                                 #Example: MySuperS3cretP4ssword
 
             #This is the user account and password that is used for communicating with the Gateway VMs
             #The HostUsername must contain the Domain name in the format DOMAIN\User
-            HostUsername = "$env:USERDNSDOMAIN\s-nc01-host"               #Example: CONTOSO\al
+            HostUsername = "$env:USERDOMAIN\s-nc01-host"               #Example: CONTOSO\al
             HostPassword = '{guess}'                                      #Example: MySuperS3cretP4ssword
             
             #iDNS configuration - the iDNSAdminUsername must be a AD user who is a member of the DNSAdmins group. This can be same user as
