@@ -24,7 +24,7 @@
             #This is the FQDN that the Network Controller's REST IP is assigned to.
             #IMPORTANT: This name must be manually added to your DNS server and map to the NetworkControllerRestIP
             NetworkControllerRestName = "nc01.$env:USERDNSDOMAIN".ToLower()    #Example (after evaluation of $env:USERDNSDOMAIN): myname.contoso.com
-            NetworkControllerRestIP = "192.168.10.240"                         #Example: 10.20.30.40
+            NetworkControllerRestIP = "10.1.30.4"                              #Example: 10.20.30.40
             NetworkControllerRestIPMask = "24"                                 #Example: 24
            
             #This is the name of the virtual switch that must exist on each host.  Note: if you have any 
@@ -47,7 +47,7 @@
             #on the Management network and it must be an address which is reachable from the Network Controller nodes.
             iDNSAdminUsername = 'setup-sdn'                               #Example: "AlYoung"
             iDNSAdminPassword = '{guess}'                    #Example: "V3ryC0mplex4dminP4ssword"
-            iDNSAddress= '192.168.10.103'                                 #Example: "10.0.0.7"
+            iDNSAddress= '10.1.30.2'                                      #Example: "10.0.0.7"
             iDNSZoneName = $env:USERDNSDOMAIN.ToLower()                   #Example: "contoso.local"
             iDNSMacAddress = 'AA-BB-CC-AA-BB-CC'
             iDNSCredentialResourceId = 'c6abefg6-44fb-45f6-89ec-5ebd890a144f' 
@@ -66,12 +66,12 @@
                     NetworkVirtualization = $true
                     Subnets = @(
                         @{
-                            VLANID = "30"                                 #Example: 11 
-                            AddressPrefix = "10.1.30.0/24"                #Example: "10.0.10.0/24"
-                            DNS = @("192.168.10.103", "192.168.10.104")   #Example: @("10.0.0.7", "10.0.0.8", "10.0.0.9")
-                            Gateways = @("10.1.30.1")                     #Example: @("10.0.10.1")
-                            PoolStart = "10.1.30.50"                      #Example: "10.0.10.50"
-                            PoolEnd = "10.1.30.150"                       #Example: "10.0.10.150"
+                            VLANID = "31"                                 #Example: 11 
+                            AddressPrefix = "10.1.31.0/24"                #Example: "10.0.10.0/24"
+                            DNS = @("10.1.30.2", "10.1.30.3")             #Example: @("10.0.0.7", "10.0.0.8", "10.0.0.9")
+                            Gateways = @("10.1.31.1")                     #Example: @("10.0.10.1")
+                            PoolStart = "10.1.31.50"                      #Example: "10.0.10.50"
+                            PoolEnd = "10.1.31.150"                       #Example: "10.0.10.150"
                        }
                     )
                 },    
@@ -122,11 +122,11 @@
                     ResourceId = '00000000-2222-1111-9999-000000000001'
                     Subnets = @(
                         @{
-                            VLANID = "31"                                 #Example: 12
-                            AddressPrefix = "10.1.31.0/24"                #Example: "10.0.40.0/24"
-                            Gateways = @("10.1.31.1")                     #Example: @("10.0.40.1")
-                            PoolStart = "10.1.31.20"                      #Example: "10.0.40.5"
-                            PoolEnd = "10.1.31.100"                       #Example: "10.0.40.100"
+                            VLANID = "32"                                 #Example: 12
+                            AddressPrefix = "10.1.32.0/24"                #Example: "10.0.40.0/24"
+                            Gateways = @("10.1.32.1")                     #Example: @("10.0.40.1")
+                            PoolStart = "10.1.32.20"                      #Example: "10.0.40.5"
+                            PoolEnd = "10.1.32.100"                       #Example: "10.0.40.100"
                         }  
                     )
                 },    
@@ -135,12 +135,12 @@
                     ResourceId = '00000000-2222-1111-9999-000000000002'
                     Subnets = @(
                         @{
-                            VLANID = "0"                                  #Example: 7                        
-                            AddressPrefix = "192.168.10.0/24"             #Example: "10.0.0.0/24"
-                            DNS = @("192.168.10.103", "192.168.10.104")   #Example: @("10.0.0.7", "10.0.0.8", "10.0.0.9")
-                            Gateways = @("192.168.10.1")                  #Example: @("10.0.40.1")
-                            PoolStart = "192.168.10.201"                  #Example: "10.0.0.5"
-                            PoolEnd = "192.168.10.230"                    #Example: "10.0.0.100"
+                            VLANID = "30"                                 #Example: 7                        
+                            AddressPrefix = "10.1.30.0/24"                #Example: "10.0.0.0/24"
+                            DNS = @("10.1.30.2", "10.1.30.3")             #Example: @("10.0.0.7", "10.0.0.8", "10.0.0.9")
+                            Gateways = @("10.1.30.1")                     #Example: @("10.0.40.1")
+                            PoolStart = "10.1.30.19"                      #Example: "10.0.0.5"
+                            PoolEnd = "10.1.30.19"                        #Example: "10.0.0.100"
                         }  
                     )
                 }
@@ -170,7 +170,7 @@
             MuxPeerRouterName = 'BGPGateway-0'
             
             #MuxPeerRouterIP is typically the default gateway IP for the HNV PA network. 
-            MuxPeerRouterIP = '10.1.30.1'                                #Example: "10.0.10.1"
+            MuxPeerRouterIP = '10.1.31.1'                                #Example: "10.0.10.1"
             
             #This is the ASN that is assigned to the physical router.  If BGP is used throughout your core network you must
             #coordinate with your network administrators to use an appropriate value.  If this is an island then you choose your
@@ -185,7 +185,7 @@
             #This section defines the BGP peerinf information for the GRE gateway.  If your BGP gateways use the same physical routers
             #as the muxes then you can use the same values, otherwise you will need to specify the values that are defined for the routers
             #that are serving the GRE gateways.
-            GreBgpPeerRouterIP = '10.1.30.1'                              #Example: "10.0.10.1"
+            GreBgpPeerRouterIP = '10.1.31.1'                              #Example: "10.0.10.1"
             GreBgpPeerRouterASN = '1'                                     #Example: "1"
             GreBgpRouterASN = '3'                                         #Example: "2"
             
@@ -222,7 +222,7 @@
             PublicIPResourceId = '00000000-5555-0000-0001-000000000000'
 
             #By default this will use the same AD domain as the deployment machine.  Don't change this.
-            FQDN=$env:USERDNSDOMAIN   
+            FQDN=$env:USERDNSDOMAIN
 
             #Version of this config file. Don't change this.
             ConfigFileVersion="1.2"
@@ -241,7 +241,7 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.241"             #Example: "10.0.0.10"
+                        IPAddress="10.1.30.5"                  #Example: "10.0.0.10"
                         LogicalNetwork = "Management"
                     }
                 )
@@ -251,15 +251,15 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.244"
+                        IPAddress="10.1.30.8"
                         LogicalNetwork = "Management"
                     },
                     @{
-                        IPAddress="10.1.30.2"                  #Example: "10.0.10.10"
+                        IPAddress="10.1.31.2"                  #Example: "10.0.10.10"
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.2"
+                        IPAddress="10.1.32.2"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -271,14 +271,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.246"             #Example: "10.0.0.13"
+                        IPAddress="10.1.30.10"                 #Example: "10.0.0.10"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.4"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.32.4"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -295,7 +295,7 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.242"             #Example: "10.0.0.12"
+                        IPAddress="10.1.30.6"                  #Example: "10.0.0.12"
                         LogicalNetwork = "Management"
                     }
                 )
@@ -305,15 +305,15 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.245"
+                        IPAddress="10.1.30.9"
                         LogicalNetwork = "Management"
                     },
                     @{
-                        IPAddress="10.1.30.3"
+                        IPAddress="10.1.31.3"
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.3"
+                        IPAddress="10.1.32.3"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -325,14 +325,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.248"             #Example: "10.0.0.13"
+                        IPAddress="10.1.30.12"                 #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.6"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.32.6"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -348,7 +348,7 @@
 				VMMemory=4GB                                   #Example: 4GB
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.243"             #Example: "10.0.0.14"
+                        IPAddress="10.1.30.7"                  #Example: "10.0.0.14"
                         LogicalNetwork = "Management"
                     }
                 )
@@ -360,14 +360,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.247"             #Example: "10.0.0.13"                          
+                        IPAddress="10.1.30.11"                  #Example: "10.0.0.13"                          
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.5"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.32.5"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
@@ -380,14 +380,14 @@
 
                 NICs=@(
                     @{
-                        IPAddress="192.168.10.249"             #Example: "10.0.0.13"
+                        IPAddress="10.1.30.13"                 #Example: "10.0.0.13"
                         LogicalNetwork = "Management"
                     },
                     @{
                         LogicalNetwork = "HNVPA"
                     },
                     @{
-                        IPAddress="10.1.31.7"                  #Example: "10.0.0.13"
+                        IPAddress="10.1.32.7"                  #Example: "10.0.0.13"
                         LogicalNetwork = "Transit"
                     }
                 )
