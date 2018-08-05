@@ -152,6 +152,9 @@ Configuration DeployVMs
             </Interfaces>
         </component>
          <component name="Microsoft-Windows-DNS-Client" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <DNSSuffixSearchOrder>
+                <DomainName wcm:action="add" wcm:keyValue="1">{10}</DomainName>
+            </DNSSuffixSearchOrder>
             <Interfaces>
 {1}
             </Interfaces>
@@ -301,7 +304,9 @@ Configuration DeployVMs
                     $escapedLocalAdminPassword = [System.Security.SecurityElement]::Escape(
                         $($Using:node.LocalAdminPassword))
 
-                    $finalUnattend = ($unattendfile -f $allnics, $dnsinterfaces, $($Using:vminfo.vmname), $($Using:node.fqdn), $($Using:node.DomainJoinUsername), $escapedDomainJoinPassword, $escapedLocalAdminPassword, $key, $timezone, $locale )
+                    $primaryDnsSuffix = $($Using:node.FQDN).ToLower()
+
+                    $finalUnattend = ($unattendfile -f $allnics, $dnsinterfaces, $($Using:vminfo.vmname), $($Using:node.fqdn), $($Using:node.DomainJoinUsername), $escapedDomainJoinPassword, $escapedLocalAdminPassword, $key, $timezone, $locale, $primaryDnsSuffix )
                     write-verbose $finalunattend
                     set-content -value $finalUnattend -path $dstfile
                 }
