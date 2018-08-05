@@ -198,6 +198,9 @@
             #TimeZone = '<< Replace >>'                                      #Example: Pacific Standard Time
             #Locale='<< Replace >>'                                          #Example: en-US
 
+            MgmtSecurityGroupName = "$env:USERDOMAIN\Network Controller (nc01) Admins"
+            ClientSecurityGroupName = "$env:USERDOMAIN\Network Controller (nc01) Users"
+
             #You generally don't need to change the rest of the values in this section
 
             VHDSrcLocation="Images"                                         #Must be under InstallSrcDir
